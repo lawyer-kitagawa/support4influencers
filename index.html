@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YouTuber・インフルエンサー専門顧問弁護士サービス | リーガルクリエイト</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans JP', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: opacity 0.3s;
+        }
+
+        nav a:hover {
+            opacity: 0.8;
+        }
+
+        main {
+            margin-top: 80px;
+        }
+
+        .hero {
+            background: linear-gradient(rgba(102, 126, 234, 0.9), rgba(118, 75, 162, 0.9)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%23f0f0f0" width="1200" height="600"/><circle fill="%23667eea" opacity="0.1" cx="200" cy="200" r="100"/><circle fill="%23764ba2" opacity="0.1" cx="1000" cy="400" r="150"/></svg>');
+            color: white;
+            text-align: center;
+            padding: 100px 0;
+            min-height: 600px;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero-content h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero-content p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: #ff6b6b;
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(255, 107, 107, 0.3);
+        }
+
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #333;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .service-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            color: #667eea;
+            margin-bottom: 1rem;
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+
+        .lawyer-profile {
+            background: #f8f9fa;
+        }
+
+        .profile-card {
+            background: white;
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .profile-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            margin: 0 auto 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: white;
+        }
+
+        .pricing {
+            background: white;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .pricing-card {
+            background: white;
+            border: 2px solid #e9ecef;
+            border-radius: 20px;
+            padding: 2.5rem;
+            text-align: center;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .pricing-card:hover {
+            border-color: #667eea;
+            transform: translateY(-5px);
+        }
+
+        .pricing-card.featured {
+            border-color: #667eea;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.05), rgba(118, 75, 162, 0.05));
+        }
+
+        .price {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #667eea;
+            margin: 1rem 0;
+        }
+
+        .contact-form {
+            background: #f8f9fa;
+        }
+
+        .form-container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #e9ecef;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .form-group textarea {
+            height: 120px;
+            resize: vertical;
+        }
+
+        footer {
+            background: #2c3e50;
+            color: white;
+            padding: 3rem 0 1rem;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            color: #667eea;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #34495e;
+            padding-top: 1rem;
+            margin-top: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+
+            .hero-content p {
+                font-size: 1.1rem;
+            }
+
+            nav ul {
+                gap: 1rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .pricing-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">⚖️ リーガルクリエイト</div>
+                <nav>
+                    <ul>
+                        <li><a href="#home">ホーム</a></li>
+                        <li><a href="#services">サービス</a></li>
+                        <li><a href="#lawyer">弁護士紹介</a></li>
+                        <li><a href="#pricing">料金プラン</a></li>
+                        <li><a href="#contact">お問い合わせ</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section id="home" class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1>YouTuber・インフルエンサー専門<br>顧問弁護士サービス</h1>
+                    <p>デジタル時代のクリエイターを法的リスクから守り、<br>安心して創作活動に専念できる環境を提供します</p>
+                    <a href="#contact" class="cta-button">無料相談を申し込む</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="services" class="section">
+            <div class="container">
+                <h2 class="section-title">専門サービス</h2>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-icon">📺</div>
+                        <h3>動画・コンテンツ法務</h3>
+                        <p>著作権侵害チェック、肖像権対応、企業案件の契約書レビュー、炎上対策など、コンテンツ制作に関わる法的問題を包括的にサポートします。</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">💰</div>
+                        <h3>収益化・税務サポート</h3>
+                        <p>YouTubeパートナープログラム、スーパーチャット、メンバーシップ収益の適切な管理方法や、税務申告のサポートを提供します。</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">🤝</div>
+                        <h3>企業案件・契約書審査</h3>
+                        <p>スポンサー契約、プロモーション案件、タイアップ企画の契約書を詳細に審査し、不利な条件から守ります。</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">🛡️</div>
+                        <h3>誹謗中傷・炎上対策</h3>
+                        <p>ネット上の誹謗中傷や風評被害に対する削除請求、発信者情報開示請求、民事・刑事手続きまで対応します。</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">📄</div>
+                        <h3>利用規約・プライバシーポリシー</h3>
+                        <p>ファンクラブサイトやオンラインサロン運営に必要な利用規約、プライバシーポリシーの作成・改定を行います。</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">⚡</div>
+                        <h3>24時間緊急対応</h3>
+                        <p>炎上や法的トラブルは待ってくれません。顧問契約者様には24時間以内の緊急対応サービスを提供します。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="lawyer" class="section lawyer-profile">
+            <div class="container">
+                <h2 class="section-title">担当弁護士紹介</h2>
+                <div class="profile-card">
+                    <div class="profile-image">👨‍⚖️</div>
+                    <h3>田中 太郎 弁護士</h3>
+                    <p><strong>第一東京弁護士会所属 | 弁護士登録番号：12345</strong></p>
+                    <p>デジタルコンテンツ法務のスペシャリストとして、100名以上のYouTuber・インフルエンサーの法務サポートを担当。IT企業での勤務経験もあり、デジタル業界の実情を深く理解しています。</p>
+                    <br>
+                    <p><strong>専門分野：</strong>インターネット法務、知的財産法、エンターテインメント法務</p>
+                    <p><strong>経歴：</strong>東京大学法学部卒業、大手IT企業法務部を経て独立</p>
+                    <p><strong>著書：</strong>「YouTuberのための法務ガイドブック」（出版社名）</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="pricing" class="section pricing">
+            <div class="container">
+                <h2 class="section-title">料金プラン</h2>
+                <div style="text-align: center; margin-bottom: 2rem;">
+                    <p style="font-size: 1.2rem; color: #ff6b6b; font-weight: bold; margin-bottom: 1rem;">
+                        ⚠️ ご契約前に必ず下記をお読みください ⚠️
+                    </p>
+                    <a href="terms.html" target="_blank" style="display: inline-block; background: linear-gradient(135deg, #ff6b6b 0%, #ee5a52 100%); color: white; padding: 15px 40px; text-decoration: none; border-radius: 50px; font-weight: bold; font-size: 1.3rem; transition: all 0.3s; box-shadow: 0 5px 15px rgba(255, 107, 107, 0.3); margin: 0.5rem;" onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 10px 25px rgba(255, 107, 107, 0.4)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 5px 15px rgba(255, 107, 107, 0.3)'">
+                        📋 利用規約を確認する
+                    </a>
+                </div>
+                <div class="pricing-grid">
+                    <div class="pricing-card">
+                        <h3>ライトプラン</h3>
+                        <div class="price">¥50,000<span style="font-size: 1rem;">/月</span></div>
+                        <ul style="text-align: left; margin: 2rem 0;">
+                            <li>✅ 月2回までの法律相談</li>
+                            <li>✅ 契約書の簡易チェック</li>
+                            <li>✅ メール・チャット対応</li>
+                            <li>✅ 基本的な法務アドバイス</li>
+                        </ul>
+                        <p style="color: #666; margin-bottom: 2rem;">チャンネル登録者数 1万人未満の方におすすめ</p>
+                        <a href="#contact" class="cta-button">お申し込み</a>
+                    </div>
+                    <div class="pricing-card featured">
+                        <h3>スタンダードプラン</h3>
+                        <div class="price">¥100,000<span style="font-size: 1rem;">/月</span></div>
+                        <ul style="text-align: left; margin: 2rem 0;">
+                            <li>✅ 月4回までの法律相談</li>
+                            <li>✅ 契約書の詳細レビュー</li>
+                            <li>✅ 24時間以内の緊急対応</li>
+                            <li>✅ 誹謗中傷対策サポート</li>
+                            <li>✅ 利用規約等の作成・更新</li>
+                            <li>✅ 税務相談（月1回）</li>
+                        </ul>
+                        <p style="color: #667eea; margin-bottom: 2rem; font-weight: bold;">最も人気のプラン</p>
+                        <a href="#contact" class="cta-button">お申し込み</a>
+                    </div>
+                    <div class="pricing-card">
+                        <h3>プレミアムプラン</h3>
+                        <div class="price">¥200,000<span style="font-size: 1rem;">/月</span></div>
+                        <ul style="text-align: left; margin: 2rem 0;">
+                            <li>✅ 無制限の法律相談</li>
+                            <li>✅ 専用担当者の配置</li>
+                            <li>✅ 即日緊急対応</li>
+                            <li>✅ 訴訟対応サポート</li>
+                            <li>✅ 事業戦略法務アドバイス</li>
+                            <li>✅ 税理士との連携サポート</li>
+                            <li>✅ 月次レポート作成</li>
+                        </ul>
+                        <p style="color: #666; margin-bottom: 2rem;">チャンネル登録者数 100万人以上の方におすすめ</p>
+                        <a href="#contact" class="cta-button">お申し込み</a>
+                    </div>
+                </div>
+                <div style="text-align: center; margin-top: 3rem;">
+                    <p style="font-size: 1.1rem; color: #666;">💡 初回相談（60分）は完全無料です</p>
+                    <p style="color: #666;">契約期間：6ヶ月〜（途中解約可能）</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="section contact-form">
+            <div class="container">
+                <h2 class="section-title">お問い合わせ</h2>
+                <div class="form-container">
+                    <form>
+                        <div class="form-group">
+                            <label for="name">お名前（必須）</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">メールアドレス（必須）</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="channel">チャンネル名・活動名</label>
+                            <input type="text" id="channel" name="channel">
+                        </div>
+                        <div class="form-group">
+                            <label for="subscribers">チャンネル登録者数</label>
+                            <select id="subscribers" name="subscribers" style="width: 100%; padding: 15px; border: 2px solid #e9ecef; border-radius: 10px; font-size: 1rem;">
+                                <option value="">選択してください</option>
+                                <option value="under-1k">1,000人未満</option>
+                                <option value="1k-10k">1,000〜10,000人</option>
+                                <option value="10k-100k">10,000〜100,000人</option>
+                                <option value="100k-1m">100,000〜1,000,000人</option>
+                                <option value="over-1m">1,000,000人以上</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="plan">ご希望プラン</label>
+                            <select id="plan" name="plan" style="width: 100%; padding: 15px; border: 2px solid #e9ecef; border-radius: 10px; font-size: 1rem;">
+                                <option value="">選択してください</option>
+                                <option value="light">ライトプラン（¥50,000/月）</option>
+                                <option value="standard">スタンダードプラン（¥100,000/月）</option>
+                                <option value="premium">プレミアムプラン（¥200,000/月）</option>
+                                <option value="consultation">まずは無料相談希望</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">ご相談内容・ご質問</label>
+                            <textarea id="message" name="message" placeholder="現在抱えている法的な課題や、ご不明な点がございましたらお聞かせください。"></textarea>
+                        </div>
+                        <div style="text-align: center;">
+                            <button type="submit" class="cta-button">送信する</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>リーガルクリエイト法律事務所</h3>
+                    <p>〒100-0001<br>
+                    東京都千代田区千代田1-1-1<br>
+                    千代田ビル10階</p>
+                    <p>📞 03-1234-5678<br>
+                    📧 info@legal-create.jp</p>
+                </div>
+                <div class="footer-section">
+                    <h3>営業時間</h3>
+                    <p>平日：9:00〜18:00<br>
+                    土曜：10:00〜16:00<br>
+                    日祝：休業</p>
+                    <p><strong>緊急時</strong><br>
+                    顧問契約者様は24時間対応</p>
+                </div>
+                <div class="footer-section">
+                    <h3>対応エリア</h3>
+                    <p>全国対応<br>
+                    （オンライン相談可）</p>
+                    <br>
+                    <p><strong>アクセス</strong><br>
+                    東京駅から徒歩5分<br>
+                    大手町駅直結</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 リーガルクリエイト法律事務所. All rights reserved. | <a href="terms.html" target="_blank" style="color: #667eea; text-decoration: none;">利用規約</a> | <a href="tokusho.html" target="_blank" style="color: #667eea; text-decoration: none;">特定商取引法に基づく表記</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const navLinks = document.querySelectorAll('nav a[href^="#"]');
+            
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href').substring(1);
+                    const targetElement = document.getElementById(targetId);
+                    
+                    if (targetElement) {
+                        const headerHeight = document.querySelector('header').offsetHeight;
+                        const targetPosition = targetElement.offsetTop - headerHeight;
+                        
+                        window.scrollTo({
+                            top: targetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+
+            const form = document.querySelector('form');
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('お問い合わせありがとうございます。24時間以内にご連絡いたします。');
+            });
+        });
+    </script>
+</body>
+</html>
