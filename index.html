@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>YouTuber・インフルエンサー専門顧問弁護士サービス | リーガルクリエイト</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@300;400;500;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -12,7 +15,7 @@
         }
 
         body {
-            font-family: 'Noto Sans JP', Arial, sans-serif;
+            font-family: 'M PLUS Rounded 1c', 'Hiragino Maru Gothic ProN', 'ヒラギノ丸ゴ ProN W4', 'メイリオ', 'Meiryo', 'MS PGothic', sans-serif;
             line-height: 1.6;
             color: #333;
         }
@@ -43,6 +46,17 @@
         .logo {
             font-size: 1.8rem;
             font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo-image {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid rgba(255, 255, 255, 0.3);
         }
 
         nav ul {
@@ -166,13 +180,15 @@
             width: 150px;
             height: 150px;
             border-radius: 50%;
-            background: linear-gradient(135deg, #667eea, #764ba2);
             margin: 0 auto 2rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 3rem;
-            color: white;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+        }
+
+        .profile-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         .pricing {
@@ -279,6 +295,94 @@
             margin-top: 2rem;
         }
 
+        /* Animations */
+        @keyframes slideInLeft {
+            from {
+                transform: translateX(-100px);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                transform: translateX(100px);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideInTop {
+            from {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideInBottom {
+            from {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                transform: translateY(30px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .animate-slide-left {
+            animation: slideInLeft 0.8s ease-out forwards;
+            opacity: 0;
+        }
+
+        .animate-slide-right {
+            animation: slideInRight 0.8s ease-out forwards;
+            opacity: 0;
+        }
+
+        .animate-slide-top {
+            animation: slideInTop 0.6s ease-out forwards;
+            opacity: 0;
+        }
+
+        .animate-slide-bottom {
+            animation: slideInBottom 0.6s ease-out forwards;
+            opacity: 0;
+        }
+
+        .animate-fade-up {
+            animation: fadeInUp 0.6s ease-out forwards;
+            opacity: 0;
+        }
+
+        .animate-delay-1 { animation-delay: 0.2s; }
+        .animate-delay-2 { animation-delay: 0.4s; }
+        .animate-delay-3 { animation-delay: 0.6s; }
+        .animate-delay-4 { animation-delay: 0.8s; }
+        .animate-delay-5 { animation-delay: 1.0s; }
+        .animate-delay-6 { animation-delay: 1.2s; }
+
         @media (max-width: 768px) {
             .hero-content h1 {
                 font-size: 2rem;
@@ -306,7 +410,10 @@
     <header>
         <div class="container">
             <div class="header-content">
-                <div class="logo">⚖️ リーガルクリエイト</div>
+                <div class="logo">
+                    <img src="lawyer-photo.png" alt="弁護士キタガワ" class="logo-image">
+                    弁護士キタガワ
+                </div>
                 <nav>
                     <ul>
                         <li><a href="#home">ホーム</a></li>
@@ -324,43 +431,43 @@
         <section id="home" class="hero">
             <div class="container">
                 <div class="hero-content">
-                    <h1>YouTuber・インフルエンサー専門<br>顧問弁護士サービス</h1>
-                    <p>デジタル時代のクリエイターを法的リスクから守り、<br>安心して創作活動に専念できる環境を提供します</p>
-                    <a href="#contact" class="cta-button">無料相談を申し込む</a>
+                    <h1 class="animate-fade-up">YouTuber・インフルエンサー専門<br>顧問弁護士サービス</h1>
+                    <p class="animate-fade-up animate-delay-1">デジタル時代のクリエイターを法的リスクから守り、<br>安心して創作活動に専念できる環境を提供します</p>
+                    <a href="#contact" class="cta-button animate-fade-up animate-delay-2">無料相談を申し込む</a>
                 </div>
             </div>
         </section>
 
         <section id="services" class="section">
             <div class="container">
-                <h2 class="section-title">専門サービス</h2>
+                <h2 class="section-title animate-slide-top">サービス内容</h2>
                 <div class="services-grid">
-                    <div class="service-card">
+                    <div class="service-card animate-fade-up">
                         <div class="service-icon">📺</div>
-                        <h3>動画・コンテンツ法務</h3>
+                        <h3>動画などの投稿を法務チェック</h3>
                         <p>著作権侵害チェック、肖像権対応、企業案件の契約書レビュー、炎上対策など、コンテンツ制作に関わる法的問題を包括的にサポートします。</p>
                     </div>
-                    <div class="service-card">
+                    <div class="service-card animate-fade-up animate-delay-1">
                         <div class="service-icon">💰</div>
                         <h3>収益化・税務サポート</h3>
                         <p>YouTubeパートナープログラム、スーパーチャット、メンバーシップ収益の適切な管理方法や、税務申告のサポートを提供します。</p>
                     </div>
-                    <div class="service-card">
+                    <div class="service-card animate-fade-up animate-delay-2">
                         <div class="service-icon">🤝</div>
                         <h3>企業案件・契約書審査</h3>
                         <p>スポンサー契約、プロモーション案件、タイアップ企画の契約書を詳細に審査し、不利な条件から守ります。</p>
                     </div>
-                    <div class="service-card">
+                    <div class="service-card animate-fade-up animate-delay-3">
                         <div class="service-icon">🛡️</div>
                         <h3>誹謗中傷・炎上対策</h3>
                         <p>ネット上の誹謗中傷や風評被害に対する削除請求、発信者情報開示請求、民事・刑事手続きまで対応します。</p>
                     </div>
-                    <div class="service-card">
+                    <div class="service-card animate-fade-up animate-delay-4">
                         <div class="service-icon">📄</div>
                         <h3>利用規約・プライバシーポリシー</h3>
                         <p>ファンクラブサイトやオンラインサロン運営に必要な利用規約、プライバシーポリシーの作成・改定を行います。</p>
                     </div>
-                    <div class="service-card">
+                    <div class="service-card animate-fade-up animate-delay-5">
                         <div class="service-icon">⚡</div>
                         <h3>24時間緊急対応</h3>
                         <p>炎上や法的トラブルは待ってくれません。顧問契約者様には24時間以内の緊急対応サービスを提供します。</p>
@@ -371,11 +478,13 @@
 
         <section id="lawyer" class="section lawyer-profile">
             <div class="container">
-                <h2 class="section-title">担当弁護士紹介</h2>
-                <div class="profile-card">
-                    <div class="profile-image">👨‍⚖️</div>
-                    <h3>田中 太郎 弁護士</h3>
-                    <p><strong>第一東京弁護士会所属 | 弁護士登録番号：12345</strong></p>
+                <h2 class="section-title animate-slide-top">担当弁護士紹介</h2>
+                <div class="profile-card animate-slide-left">
+                    <div class="profile-image">
+                        <img src="lawyer-photo.png" alt="北川 貴啓 弁護士">
+                    </div>
+                    <h3>弁護士　北 川 貴 啓</h3>
+                    <p><strong>神奈川県弁護士会所属</strong></p>
                     <p>デジタルコンテンツ法務のスペシャリストとして、100名以上のYouTuber・インフルエンサーの法務サポートを担当。IT企業での勤務経験もあり、デジタル業界の実情を深く理解しています。</p>
                     <br>
                     <p><strong>専門分野：</strong>インターネット法務、知的財産法、エンターテインメント法務</p>
@@ -387,7 +496,7 @@
 
         <section id="pricing" class="section pricing">
             <div class="container">
-                <h2 class="section-title">料金プラン</h2>
+                <h2 class="section-title animate-slide-top">料金プラン</h2>
                 <div style="text-align: center; margin-bottom: 2rem;">
                     <p style="font-size: 1.2rem; color: #ff6b6b; font-weight: bold; margin-bottom: 1rem;">
                         ⚠️ ご契約前に必ず下記をお読みください ⚠️
@@ -397,7 +506,7 @@
                     </a>
                 </div>
                 <div class="pricing-grid">
-                    <div class="pricing-card">
+                    <div class="pricing-card animate-slide-bottom">
                         <h3>ライトプラン</h3>
                         <div class="price">¥50,000<span style="font-size: 1rem;">/月</span></div>
                         <ul style="text-align: left; margin: 2rem 0;">
@@ -409,7 +518,7 @@
                         <p style="color: #666; margin-bottom: 2rem;">チャンネル登録者数 1万人未満の方におすすめ</p>
                         <a href="#contact" class="cta-button">お申し込み</a>
                     </div>
-                    <div class="pricing-card featured">
+                    <div class="pricing-card featured animate-slide-bottom animate-delay-1">
                         <h3>スタンダードプラン</h3>
                         <div class="price">¥100,000<span style="font-size: 1rem;">/月</span></div>
                         <ul style="text-align: left; margin: 2rem 0;">
@@ -423,7 +532,7 @@
                         <p style="color: #667eea; margin-bottom: 2rem; font-weight: bold;">最も人気のプラン</p>
                         <a href="#contact" class="cta-button">お申し込み</a>
                     </div>
-                    <div class="pricing-card">
+                    <div class="pricing-card animate-slide-bottom animate-delay-2">
                         <h3>プレミアムプラン</h3>
                         <div class="price">¥200,000<span style="font-size: 1rem;">/月</span></div>
                         <ul style="text-align: left; margin: 2rem 0;">
@@ -448,8 +557,8 @@
 
         <section id="contact" class="section contact-form">
             <div class="container">
-                <h2 class="section-title">お問い合わせ</h2>
-                <div class="form-container">
+                <h2 class="section-title animate-slide-top">お問い合わせ</h2>
+                <div class="form-container animate-fade-up">
                     <form>
                         <div class="form-group">
                             <label for="name">お名前（必須）</label>
@@ -534,6 +643,7 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
+            // Smooth scrolling navigation
             const navLinks = document.querySelectorAll('nav a[href^="#"]');
             
             navLinks.forEach(link => {
@@ -554,10 +664,41 @@
                 });
             });
 
+            // Form submission
             const form = document.querySelector('form');
             form.addEventListener('submit', function(e) {
                 e.preventDefault();
                 alert('お問い合わせありがとうございます。24時間以内にご連絡いたします。');
+            });
+
+            // Animation on scroll and page load
+            const animateElements = document.querySelectorAll('.animate-slide-left, .animate-slide-right, .animate-slide-top, .animate-slide-bottom, .animate-fade-up');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.animationPlayState = 'running';
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            });
+
+            // Hero section elements should animate immediately on page load
+            const heroElements = document.querySelectorAll('#home .animate-fade-up');
+            heroElements.forEach(element => {
+                element.style.animationPlayState = 'running';
+            });
+
+            // Other elements animate on scroll
+            const scrollElements = document.querySelectorAll('.animate-slide-left, .animate-slide-right, .animate-slide-top, .animate-slide-bottom');
+            const nonHeroFadeElements = document.querySelectorAll('.animate-fade-up:not(#home .animate-fade-up)');
+            
+            [...scrollElements, ...nonHeroFadeElements].forEach(element => {
+                element.style.animationPlayState = 'paused';
+                observer.observe(element);
             });
         });
     </script>
