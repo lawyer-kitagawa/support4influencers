@@ -229,6 +229,70 @@
             margin: 1rem 0;
         }
 
+        .faq {
+            background: #ffffff;
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            margin-bottom: 1rem;
+            border: 1px solid #e9ecef;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            width: 100%;
+            padding: 1.5rem;
+            background: #f8f9fa;
+            border: none;
+            text-align: left;
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: #333;
+            cursor: pointer;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .faq-question:hover {
+            background: #e9ecef;
+        }
+
+        .faq-question::after {
+            content: '+';
+            position: absolute;
+            right: 1.5rem;
+            font-size: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .faq-question.active::after {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            padding: 0 1.5rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .faq-answer.active {
+            padding: 1.5rem;
+            max-height: 500px;
+        }
+
+        .faq-answer p {
+            margin: 0;
+            color: #666;
+            line-height: 1.6;
+        }
+
         .contact-form {
             background: #f8f9fa;
         }
@@ -535,6 +599,7 @@
                         <li><a href="#services">サービス</a></li>
                         <li><a href="#lawyer">弁護士紹介</a></li>
                         <li><a href="#pricing">料金プラン</a></li>
+                        <li><a href="#faq">FAQ</a></li>
                         <li><a href="#contact">お問い合わせ</a></li>
                     </ul>
                 </nav>
@@ -688,21 +753,9 @@
                     </a>
                 </div>
                 <div class="pricing-grid">
-                    <div class="pricing-card animate-slide-bottom">
-                        <h3>ライトプラン</h3>
-                        <div class="price">¥50,000<span style="font-size: 1rem;">/月</span></div>
-                        <ul style="text-align: left; margin: 2rem 0;">
-                            <li>✅ 月2回までの法律相談</li>
-                            <li>✅ 契約書の簡易チェック</li>
-                            <li>✅ メール・チャット対応</li>
-                            <li>✅ 基本的な法務アドバイス</li>
-                        </ul>
-                        <p style="color: #666; margin-bottom: 2rem;">チャンネル登録者数 1万人未満の方におすすめ</p>
-                        <a href="#contact" class="cta-button">お申し込み</a>
-                    </div>
                     <div class="pricing-card featured animate-slide-bottom animate-delay-1">
                         <h3>スタンダードプラン</h3>
-                        <div class="price">¥100,000<span style="font-size: 1rem;">/月</span></div>
+                        <div class="price">¥10,000<span style="font-size: 1rem;">/月（税別）</span></div>
                         <ul style="text-align: left; margin: 2rem 0;">
                             <li>✅ 月4回までの法律相談</li>
                             <li>✅ 契約書の詳細レビュー</li>
@@ -716,7 +769,7 @@
                     </div>
                     <div class="pricing-card animate-slide-bottom animate-delay-2">
                         <h3>プレミアムプラン</h3>
-                        <div class="price">¥200,000<span style="font-size: 1rem;">/月</span></div>
+                        <div class="price">¥30,000<span style="font-size: 1rem;">/月（税別）</span></div>
                         <ul style="text-align: left; margin: 2rem 0;">
                             <li>✅ 無制限の法律相談</li>
                             <li>✅ 専用担当者の配置</li>
@@ -733,6 +786,85 @@
                 <div style="text-align: center; margin-top: 3rem;">
                     <p style="font-size: 1.1rem; color: #666;">💡 初回相談（60分）は完全無料です</p>
                     <p style="color: #666;">契約期間：6ヶ月〜（途中解約可能）</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="faq" class="section faq">
+            <div class="container">
+                <h2 class="section-title animate-slide-top">よくある質問</h2>
+                <div class="faq-container animate-fade-up">
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="toggleFaq(this)">
+                            YouTuber向け顧問弁護士サービスとは何ですか？
+                        </button>
+                        <div class="faq-answer">
+                            <p>YouTuberやインフルエンサーの皆様が直面する法的な問題について、専門的なアドバイスとサポートを提供するサービスです。契約書のレビューから誹謗中傷対策、著作権問題まで幅広く対応いたします。</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="toggleFaq(this)">
+                            契約期間はどのくらいですか？
+                        </button>
+                        <div class="faq-answer">
+                            <p>最低契約期間は3ヶ月からとなっております。その後は月単位での更新が可能です。長期契約をご希望の場合は、割引制度もご用意しておりますのでご相談ください。</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="toggleFaq(this)">
+                            緊急時の対応はどのようになっていますか？
+                        </button>
+                        <div class="faq-answer">
+                            <p>スタンダードプランでは24時間以内、プレミアムプランでは即日対応いたします。誹謗中傷や著作権侵害などの緊急性の高い案件については、優先的に対応させていただきます。</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="toggleFaq(this)">
+                            どのような相談が多いですか？
+                        </button>
+                        <div class="faq-answer">
+                            <p>企業案件の契約書レビュー、コラボレーション契約、誹謗中傷・炎上対策、著作権・肖像権に関する相談、税務相談などが多くなっております。チャンネル運営に関するあらゆる法的問題に対応可能です。</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="toggleFaq(this)">
+                            料金の支払い方法はどうなっていますか？
+                        </button>
+                        <div class="faq-answer">
+                            <p>月額料金は銀行振込またはクレジットカード決済にて承っております。年払いをご選択いただくと10％の割引が適用されます。初回のみ契約時に初期費用として、月額料金の50％をお支払いいただきます。</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="toggleFaq(this)">
+                            地方在住でもサービスを利用できますか？
+                        </button>
+                        <div class="faq-answer">
+                            <p>はい、全国どちらにお住まいの方でもご利用いただけます。相談はメール、電話、オンライン会議ツールを活用して行いますので、場所を問わずサポートが可能です。</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="toggleFaq(this)">
+                            契約書の作成もお願いできますか？
+                        </button>
+                        <div class="faq-answer">
+                            <p>はい、可能です。企業案件契約書、コラボレーション契約書、利用規約、プライバシーポリシーなど、YouTuber活動に必要な各種契約書の作成・レビューを承っております。</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="toggleFaq(this)">
+                            無料相談ではどのような内容を相談できますか？
+                        </button>
+                        <div class="faq-answer">
+                            <p>現在抱えている法的な課題についてお聞かせください。具体的な解決策のご提案や、当サービスがどのようにお役に立てるかをご説明いたします。相談時間は約30分程度を予定しております。</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -769,9 +901,8 @@
                             <label for="plan">ご希望プラン</label>
                             <select id="plan" name="plan" style="width: 100%; padding: 15px; border: 2px solid #e9ecef; border-radius: 10px; font-size: 1rem;">
                                 <option value="">選択してください</option>
-                                <option value="light">ライトプラン（¥50,000/月）</option>
-                                <option value="standard">スタンダードプラン（¥100,000/月）</option>
-                                <option value="premium">プレミアムプラン（¥200,000/月）</option>
+                                <option value="standard">スタンダードプラン（¥10,000/月・税別）</option>
+                                <option value="premium">プレミアムプラン（¥30,000/月・税別）</option>
                                 <option value="consultation">まずは無料相談希望</option>
                             </select>
                         </div>
@@ -883,6 +1014,23 @@
                 observer.observe(element);
             });
         });
+
+        function toggleFaq(button) {
+            const answer = button.nextElementSibling;
+            const isActive = button.classList.contains('active');
+            
+            // すべてのFAQを閉じる
+            document.querySelectorAll('.faq-question').forEach(q => {
+                q.classList.remove('active');
+                q.nextElementSibling.classList.remove('active');
+            });
+            
+            // クリックされたFAQが閉じていた場合は開く
+            if (!isActive) {
+                button.classList.add('active');
+                answer.classList.add('active');
+            }
+        }
     </script>
 </body>
 </html>
