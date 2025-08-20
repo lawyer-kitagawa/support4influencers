@@ -35,6 +35,12 @@
             width: 100%;
             top: 0;
             z-index: 1000;
+            transition: transform 0.3s ease;
+            transform: translateY(0);
+        }
+
+        header.hidden {
+            transform: translateY(-100%);
         }
 
         .header-content {
@@ -128,6 +134,149 @@
             font-size: 2.5rem;
             margin-bottom: 3rem;
             color: #333;
+        }
+
+        .reasons {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .reasons .section-title {
+            color: white;
+        }
+
+        .reasons-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            margin-top: 3rem;
+        }
+
+        .reasons-image {
+            width: 100%;
+            height: 400px;
+            border-radius: 20px;
+            object-fit: cover;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+
+        .reasons-list {
+            padding: 0;
+        }
+
+        .reason-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: transform 0.3s, background 0.3s;
+        }
+
+        .reason-item:hover {
+            transform: translateX(10px);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .reason-icon {
+            font-size: 2.5rem;
+            margin-right: 1.5rem;
+            margin-top: 0.5rem;
+        }
+
+        .reason-content h3 {
+            color: white;
+            margin-bottom: 0.5rem;
+            font-size: 1.3rem;
+        }
+
+        .reason-content p {
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        @media (max-width: 768px) {
+            .reasons-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .reasons-image {
+                height: 300px;
+            }
+        }
+
+        .fixed-buttons {
+            position: fixed;
+            top: 80px;
+            right: 20px;
+            z-index: 9999;
+            display: flex;
+            gap: 10px;
+            transition: top 0.3s ease;
+        }
+
+        .fixed-buttons.header-hidden {
+            top: 20px;
+        }
+
+        .fixed-btn {
+            padding: 8px 16px;
+            border: none;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+            color: white;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: all 0.3s ease;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+            white-space: nowrap;
+        }
+
+        .fixed-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+
+        .fixed-btn.email {
+            background: #dc3545;
+        }
+
+        .fixed-btn.email:hover {
+            background: #c82333;
+        }
+
+        .fixed-btn.line {
+            background: #06c755;
+        }
+
+        .fixed-btn.line:hover {
+            background: #05b050;
+        }
+
+        @media (max-width: 768px) {
+            .fixed-buttons {
+                top: 70px;
+                right: 10px;
+                gap: 5px;
+            }
+            
+            .fixed-buttons.header-hidden {
+                top: 10px;
+            }
+            
+            .fixed-btn {
+                padding: 6px 12px;
+                font-size: 11px;
+            }
         }
 
         .services-grid {
@@ -586,6 +735,14 @@
     </style>
 </head>
 <body>
+    <div class="fixed-buttons">
+        <a href="#contact" class="fixed-btn email">
+            メール問合せ
+        </a>
+        <a href="https://line.me/R/ti/p/@your-line-id" class="fixed-btn line" target="_blank">
+            LINE公式アカウント
+        </a>
+    </div>
     <header>
         <div class="container">
             <div class="header-content">
@@ -598,6 +755,7 @@
                         <li><a href="#home">ホーム</a></li>
                         <li><a href="#services">サービス</a></li>
                         <li><a href="#lawyer">弁護士紹介</a></li>
+                        <li><a href="#reasons">選ばれる理由</a></li>
                         <li><a href="#pricing">料金プラン</a></li>
                         <li><a href="#faq">FAQ</a></li>
                         <li><a href="#contact">お問い合わせ</a></li>
@@ -678,6 +836,51 @@
                         <div class="problem-bubble">
                             <div class="problem-text">
                                 何が自分でビジネスを始めたいけど、もそもそ自分の適正ってなんだろう？どんな種類を人に提供できませんだろう？演奏としたまでは全然思想せない……
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="reasons" class="section reasons">
+            <div class="container">
+                <h2 class="section-title animate-slide-top">弁護士キタガワが選ばれる理由</h2>
+                <div class="reasons-content animate-fade-up">
+                    <div class="reasons-image-container">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&h=400&fit=crop&crop=face" alt="弁護士キタガワ" class="reasons-image">
+                    </div>
+                    
+                    <div class="reasons-list">
+                        <div class="reason-item animate-slide-right">
+                            <span class="reason-icon">📺</span>
+                            <div class="reason-content">
+                                <h3>YouTubeで法律情報を発信</h3>
+                                <p>SNSトラブルや法律知識に関する専門チャンネルを運営。YouTuberが直面する問題を熟知し、実践的なアドバイスを提供しています。</p>
+                            </div>
+                        </div>
+                        
+                        <div class="reason-item animate-slide-right animate-delay-1">
+                            <span class="reason-icon">⚖️</span>
+                            <div class="reason-content">
+                                <h3>SNS・ネット法務の専門家</h3>
+                                <p>誹謗中傷、著作権侵害、炎上対策など、インターネット特有の法的問題に精通。豊富な解決実績で安心してお任せいただけます。</p>
+                            </div>
+                        </div>
+                        
+                        <div class="reason-item animate-slide-right animate-delay-2">
+                            <span class="reason-icon">🚀</span>
+                            <div class="reason-content">
+                                <h3>クリエイター目線でのサポート</h3>
+                                <p>自身もコンテンツクリエイターとして活動しているため、クリエイターの悩みや課題を深く理解。現場感覚を活かした実用的な解決策を提案します。</p>
+                            </div>
+                        </div>
+                        
+                        <div class="reason-item animate-slide-right animate-delay-3">
+                            <span class="reason-icon">⏰</span>
+                            <div class="reason-content">
+                                <h3>スピーディーな対応</h3>
+                                <p>デジタル時代のスピード感に対応。緊急性の高い案件には24時間以内に初回対応し、迅速な問題解決をお約束します。</p>
                             </div>
                         </div>
                     </div>
@@ -1013,6 +1216,27 @@
                 element.style.animationPlayState = 'paused';
                 observer.observe(element);
             });
+        });
+
+        // ヘッダーのスクロール制御
+        let lastScrollY = window.scrollY;
+        const header = document.querySelector('header');
+        const fixedButtons = document.querySelector('.fixed-buttons');
+
+        window.addEventListener('scroll', () => {
+            const currentScrollY = window.scrollY;
+            
+            if (currentScrollY > lastScrollY && currentScrollY > 100) {
+                // 下にスクロール時はヘッダーを隠す
+                header.classList.add('hidden');
+                fixedButtons.classList.add('header-hidden');
+            } else {
+                // 上にスクロール時はヘッダーを表示
+                header.classList.remove('hidden');
+                fixedButtons.classList.remove('header-hidden');
+            }
+            
+            lastScrollY = currentScrollY;
         });
 
         function toggleFaq(button) {
