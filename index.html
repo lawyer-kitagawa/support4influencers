@@ -346,9 +346,34 @@
 
         .pricing-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: 1.5fr 1fr;
+            grid-template-rows: auto auto;
             gap: 2rem;
             margin-top: 3rem;
+            align-items: start;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .pricing-card.main {
+            grid-column: 1 / -1;
+            width: 100%;
+            margin: 0;
+            transform: scale(1.05);
+            border-width: 4px;
+        }
+
+        .pricing-card.premium {
+            grid-column: 1;
+            width: 100%;
+        }
+
+        .pricing-card.special {
+            grid-column: 2;
+            width: 100%;
+            transform: scale(0.95);
+            opacity: 0.95;
         }
 
         .pricing-card {
@@ -730,6 +755,23 @@
 
             .pricing-grid {
                 grid-template-columns: 1fr;
+                grid-template-rows: auto auto auto;
+            }
+
+            .pricing-card.main {
+                grid-column: 1;
+                max-width: 100%;
+                transform: scale(1);
+            }
+
+            .pricing-card.premium {
+                grid-column: 1;
+            }
+
+            .pricing-card.special {
+                grid-column: 1;
+                transform: scale(1);
+                opacity: 1;
             }
         }
     </style>
@@ -956,7 +998,7 @@
                     </a>
                 </div>
                 <div class="pricing-grid">
-                    <div class="pricing-card featured animate-slide-bottom animate-delay-1">
+                    <div class="pricing-card main featured animate-slide-bottom">
                         <h3>スタンダードプラン</h3>
                         <div class="price">¥10,000<span style="font-size: 1rem;">/月（税別）</span></div>
                         <ul style="text-align: left; margin: 2rem 0;">
@@ -970,7 +1012,8 @@
                         <p style="color: #667eea; margin-bottom: 2rem; font-weight: bold;">最も人気のプラン</p>
                         <a href="#contact" class="cta-button">お申し込み</a>
                     </div>
-                    <div class="pricing-card animate-slide-bottom animate-delay-2">
+                    
+                    <div class="pricing-card premium animate-slide-bottom animate-delay-1">
                         <h3>プレミアムプラン</h3>
                         <div class="price">¥30,000<span style="font-size: 1rem;">/月（税別）</span></div>
                         <ul style="text-align: left; margin: 2rem 0;">
@@ -984,6 +1027,20 @@
                         </ul>
                         <p style="color: #666; margin-bottom: 2rem;">チャンネル登録者数 100万人以上の方におすすめ</p>
                         <a href="#contact" class="cta-button">お申し込み</a>
+                    </div>
+                    
+                    <div class="pricing-card special animate-slide-bottom animate-delay-2">
+                        <h3 style="color: #dc3545; font-weight: bold;">【限定5枠】スペシャルプラン</h3>
+                        <div class="price">¥50,000<span style="font-size: 1rem;">/月（税別）</span></div>
+                        <ul style="text-align: left; margin: 2rem 0;">
+                            <li>✅ 完全個別対応</li>
+                            <li>✅ 専属弁護士サービス</li>
+                            <li>✅ 24時間電話対応</li>
+                            <li>✅ 月1回の対面相談</li>
+                            <li>✅ 法的戦略の立案</li>
+                        </ul>
+                        <p style="color: #dc3545; margin-bottom: 2rem; font-weight: bold; font-size: 0.9rem;">完全プレミアム対応</p>
+                        <a href="#contact" class="cta-button" style="background: #dc3545;">お申し込み</a>
                     </div>
                 </div>
                 <div style="text-align: center; margin-top: 3rem;">
@@ -1106,6 +1163,7 @@
                                 <option value="">選択してください</option>
                                 <option value="standard">スタンダードプラン（¥10,000/月・税別）</option>
                                 <option value="premium">プレミアムプラン（¥30,000/月・税別）</option>
+                                <option value="special">【限定5枠】スペシャルプラン（¥50,000/月・税別）</option>
                                 <option value="consultation">まずは無料相談希望</option>
                             </select>
                         </div>
