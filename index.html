@@ -383,7 +383,122 @@
         .animate-delay-5 { animation-delay: 1.0s; }
         .animate-delay-6 { animation-delay: 1.2s; }
 
+        .influencer-problems {
+            background: #f8f9fa;
+            padding: 80px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .problems-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 4rem;
+            color: #333;
+            font-weight: 700;
+        }
+
+        .problems-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-bottom: 2rem;
+        }
+
+        .problem-item {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            text-align: left;
+        }
+
+        .problem-bubble {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 20px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            position: relative;
+            transition: all 0.3s ease;
+            flex: 1;
+        }
+
+        .problem-bubble::before {
+            content: '';
+            position: absolute;
+            left: -15px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 0;
+            height: 0;
+            border-top: 15px solid transparent;
+            border-bottom: 15px solid transparent;
+            border-right: 15px solid white;
+        }
+
+        .problem-bubble:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+        .problem-text {
+            font-size: 0.9rem;
+            line-height: 1.6;
+            color: #444;
+            margin-bottom: 0;
+        }
+
+        .problem-person {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            min-width: 120px;
+        }
+
+        .person-avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 1.8rem;
+        }
+
+        .person-info h4 {
+            margin: 0;
+            color: #333;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        .person-info p {
+            margin: 0;
+            color: #666;
+            font-size: 0.7rem;
+            text-align: center;
+        }
+
         @media (max-width: 768px) {
+            .problems-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .problems-title {
+                font-size: 2rem;
+            }
+
+            .problem-bubble {
+                padding: 2rem;
+            }
+
             .hero-content h1 {
                 font-size: 2rem;
             }
@@ -434,6 +549,73 @@
                     <h1 class="animate-fade-up">YouTuber・インフルエンサー専門<br>顧問弁護士サービス</h1>
                     <p class="animate-fade-up animate-delay-1">デジタル時代のクリエイターを法的リスクから守り、<br>安心して創作活動に専念できる環境を提供します</p>
                     <a href="#contact" class="cta-button animate-fade-up animate-delay-2">無料相談を申し込む</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="influencer-problems">
+            <div class="container">
+                <h2 class="problems-title animate-slide-top">このような事でお悩みではありませんか？</h2>
+                <div class="problems-grid">
+                    <div class="problem-item animate-fade-up">
+                        <div class="problem-person">
+                            <div class="person-avatar">A</div>
+                            <div class="person-info">
+                                <h4>YouTuber Aさん</h4>
+                                <p>チャンネル登録者数 5万人</p>
+                            </div>
+                        </div>
+                        <div class="problem-bubble">
+                            <div class="problem-text">
+                                会社名、商品、ブランド、商品名とか……どうもみ怪しさに気づいているんですが、SNSで発信してしまったし、なかなかうまく戻るられません……
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="problem-item animate-fade-up animate-delay-1">
+                        <div class="problem-person">
+                            <div class="person-avatar">B</div>
+                            <div class="person-info">
+                                <h4>インスタグラマー Bさん</h4>
+                                <p>フォロワー数 10万人</p>
+                            </div>
+                        </div>
+                        <div class="problem-bubble">
+                            <div class="problem-text">
+                                本当に活動するのはなんだか不安……プライバシーのことも当然、ビジネスは盛んイメージにしたいけど、どんな名前が良いのかわからない、適当にはつけたくない
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="problem-item animate-fade-up animate-delay-2">
+                        <div class="problem-person">
+                            <div class="person-avatar">C</div>
+                            <div class="person-info">
+                                <h4>TikToker Cさん</h4>
+                                <p>フォロワー数 50万人</p>
+                            </div>
+                        </div>
+                        <div class="problem-bubble">
+                            <div class="problem-text">
+                                名前とかロゴとか、SNSの投稿とか……全部パクられてる？確認してないけど、一貫性のあるブランドを作りたい！
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="problem-item animate-fade-up animate-delay-3">
+                        <div class="problem-person">
+                            <div class="person-avatar">D</div>
+                            <div class="person-info">
+                                <h4>配信者 Dさん</h4>
+                                <p>配信歴 2年</p>
+                            </div>
+                        </div>
+                        <div class="problem-bubble">
+                            <div class="problem-text">
+                                何が自分でビジネスを始めたいけど、もそもそ自分の適正ってなんだろう？どんな種類を人に提供できませんだろう？演奏としたまでは全然思想せない……
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
