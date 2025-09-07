@@ -3,7 +3,8 @@
     "allow": [
       "Bash(copy:*)",
       "Bash(cp:*)",
-      "Read(/C:\\Users\\ta-k-\\Desktop/**)"
+      "Read(/C:\\Users\\ta-k-\\Desktop/**)",
+      "WebSearch"
     ],
     "deny": []
   }
