@@ -2,7 +2,8 @@
   "permissions": {
     "allow": [
       "Bash(copy:*)",
-      "Bash(cp:*)"
+      "Bash(cp:*)",
+      "Read(/C:\\Users\\ta-k-\\Desktop/**)"
     ],
     "deny": []
   }
