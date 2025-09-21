@@ -4,7 +4,8 @@
       "Bash(copy:*)",
       "Bash(cp:*)",
       "Read(/C:\\Users\\ta-k-\\Desktop/**)",
-      "WebSearch"
+      "WebSearch",
+      "Read(//c/Users/ta-k-/Desktop/**)"
     ],
     "deny": []
   }
