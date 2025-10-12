@@ -5,7 +5,8 @@
       "Bash(cp:*)",
       "Read(/C:\\Users\\ta-k-\\Desktop/**)",
       "WebSearch",
-      "Read(//c/Users/ta-k-/Desktop/**)"
+      "Read(//c/Users/ta-k-/Desktop/**)",
+      "Bash(unzip:*)"
     ],
     "deny": []
   }
