@@ -690,6 +690,103 @@
             resize: vertical;
         }
 
+        .application-flow {
+            background: #f8f9fa;
+        }
+
+        .flow-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+
+        .flow-steps {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            position: relative;
+        }
+
+        .flow-step {
+            background: white;
+            border: 3px solid #40916c;
+            border-radius: 20px;
+            padding: 2rem 3rem;
+            text-align: left;
+            position: relative;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .flow-step:hover {
+            transform: translateX(5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+        .flow-step-number {
+            background: linear-gradient(135deg, #2d6a4f 0%, #5fcc94 100%);
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        .flow-step-content {
+            flex: 1;
+        }
+
+        .flow-step h3 {
+            color: #2d6a4f;
+            font-size: 1.4rem;
+            margin-bottom: 0.8rem;
+            font-weight: bold;
+        }
+
+        .flow-step p {
+            color: #40916c;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        .flow-arrow {
+            position: absolute;
+            color: #40916c;
+            font-size: 3rem;
+            font-weight: bold;
+            left: 50%;
+            transform: translateX(-50%) rotate(90deg);
+            bottom: -2.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .flow-step {
+                padding: 1.5rem;
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .flow-step-number {
+                width: 50px;
+                height: 50px;
+                font-size: 1.5rem;
+            }
+
+            .flow-arrow {
+                font-size: 2rem;
+                bottom: -2rem;
+            }
+        }
+
         footer {
             background: #2c3e50;
             color: white;
@@ -969,6 +1066,7 @@
                     <ul>
                         <li><a href="#home">ホーム</a></li>
                         <li><a href="#services">サービス</a></li>
+                        <li><a href="#flow">お申込の流れ</a></li>
                         <li><a href="#lawyer">弁護士紹介</a></li>
                         <li><a href="#reasons">選ばれる理由</a></li>
                         <li><a href="#pricing">料金プラン</a></li>
@@ -988,6 +1086,7 @@
                 <ul>
                     <li><a href="#home" onclick="closeMobileMenu()">ホーム</a></li>
                     <li><a href="#services" onclick="closeMobileMenu()">サービス</a></li>
+                    <li><a href="#flow" onclick="closeMobileMenu()">お申込の流れ</a></li>
                     <li><a href="#lawyer" onclick="closeMobileMenu()">弁護士紹介</a></li>
                     <li><a href="#reasons" onclick="closeMobileMenu()">選ばれる理由</a></li>
                     <li><a href="#pricing" onclick="closeMobileMenu()">料金プラン</a></li>
@@ -1155,6 +1254,50 @@
                         <div class="service-icon">⚡</div>
                         <h3>24時間緊急対応</h3>
                         <p>炎上や法的トラブルは待ってくれません。顧問契約者様には24時間以内の緊急対応サービスを提供します。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="flow" class="section application-flow">
+            <div class="container">
+                <h2 class="section-title animate-slide-top">お申込の流れ</h2>
+                <div class="flow-container animate-fade-up">
+                    <div class="flow-steps">
+                        <div class="flow-step">
+                            <div class="flow-step-number">1</div>
+                            <div class="flow-step-content">
+                                <h3>順番待ち公式LINEにご登録ください</h3>
+                                <p>まずは公式LINEアカウントにご登録ください。登録は無料で、いつでも解除可能です。最新の法律情報やお得な情報もお届けします。</p>
+                            </div>
+                            <div class="flow-arrow">→</div>
+                        </div>
+
+                        <div class="flow-step">
+                            <div class="flow-step-number">2</div>
+                            <div class="flow-step-content">
+                                <h3>公式LINEから直接「顧問契約希望」と連絡ください</h3>
+                                <p>公式LINEのトーク画面から「顧問契約希望」とメッセージをお送りください。併せてご希望のプランをご教示ください。</p>
+                            </div>
+                            <div class="flow-arrow">→</div>
+                        </div>
+
+                        <div class="flow-step">
+                            <div class="flow-step-number">3</div>
+                            <div class="flow-step-content">
+                                <h3>弁護士キタガワから連絡が来て契約の説明をします</h3>
+                                <p>弁護士キタガワ本人から直接ご連絡し、サービス内容や料金プラン、契約条件について詳しくご説明いたします。ご不明な点は何でもお聞きください。</p>
+                            </div>
+                            <div class="flow-arrow">→</div>
+                        </div>
+
+                        <div class="flow-step">
+                            <div class="flow-step-number">4</div>
+                            <div class="flow-step-content">
+                                <h3>顧問契約が成立します</h3>
+                                <p>利用規約の内容にご納得いただけましたら、正式に顧問契約を締結となります。契約後すぐにサービスをご利用いただけます。</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
