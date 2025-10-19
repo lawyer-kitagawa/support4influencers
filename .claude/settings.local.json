@@ -1,16 +1,9 @@
 {
   "permissions": {
     "allow": [
-      "Bash(copy:*)",
-      "Bash(cp:*)",
-      "Read(/C:\\Users\\ta-k-\\Desktop/**)",
-      "WebSearch",
-      "Read(//c/Users/ta-k-/Desktop/**)",
-      "Bash(unzip:*)",
-      "WebFetch(domain:mmslaw.jp)",
-      "Bash(git checkout:*)",
-      "Bash(ls \"C:\\Users\\ta-k-\\Desktop\"\" | grep -i \"スクリーンショット.*145 \")"
+      "Read(//c/Users/ta-k-/Desktop/**)"
     ],
-    "deny": []
+    "deny": [],
+    "ask": []
   }
 }
