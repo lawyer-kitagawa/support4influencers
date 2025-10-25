@@ -1487,7 +1487,7 @@
             <div class="container">
                 <h2 class="section-title animate-slide-top">お問い合わせ</h2>
                 <div class="form-container animate-fade-up">
-                    <form>
+                    <form id="contactForm">
                         <div class="form-group">
                             <label for="name">お名前（必須）</label>
                             <input type="text" id="name" name="name" required>
@@ -1497,33 +1497,19 @@
                             <input type="email" id="email" name="email" required>
                         </div>
                         <div class="form-group">
-                            <label for="channel">チャンネル名・活動名</label>
-                            <input type="text" id="channel" name="channel">
-                        </div>
-                        <div class="form-group">
-                            <label for="subscribers">チャンネル登録者数</label>
-                            <select id="subscribers" name="subscribers" style="width: 100%; padding: 15px; border: 2px solid #e9ecef; border-radius: 10px; font-size: 1rem;">
-                                <option value="">選択してください</option>
-                                <option value="under-1k">1,000人未満</option>
-                                <option value="1k-10k">1,000〜10,000人</option>
-                                <option value="10k-100k">10,000〜100,000人</option>
-                                <option value="100k-1m">100,000〜1,000,000人</option>
-                                <option value="over-1m">1,000,000人以上</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="plan">ご希望プラン</label>
+                            <label for="plan">ご希望</label>
                             <select id="plan" name="plan" style="width: 100%; padding: 15px; border: 2px solid #e9ecef; border-radius: 10px; font-size: 1rem;">
                                 <option value="">選択してください</option>
-                                <option value="standard">スタンダードプラン（¥10,000/月・税別）</option>
+                                <option value="basic">ベーシックプラン（¥10,000/月・税別）</option>
                                 <option value="premium">プレミアムプラン（¥30,000/月・税別）</option>
                                 <option value="special">【限定5枠】スペシャルプラン（¥50,000/月・税別）</option>
-                                <option value="consultation">まずは無料相談希望</option>
+                                <option value="consultation">単発メール相談(税別5,000円/1ヶ月4往復まで)</option>
+                                <option value="other">その他お問い合わせ</option>
                             </select>
                         </div>
                         <div class="form-group">
-                            <label for="message">ご相談内容・ご質問</label>
-                            <textarea id="message" name="message" placeholder="現在抱えている法的な課題や、ご不明な点がございましたらお聞かせください。"></textarea>
+                            <label for="message">お問い合わせ内容</label>
+                            <textarea id="message" name="message" placeholder="できるだけ具体的にご記入ください。"></textarea>
                         </div>
                         <div style="text-align: center;">
                             <button type="submit" class="cta-button">送信する</button>
@@ -1565,11 +1551,23 @@
                 });
             });
 
-            // Form submission
-            const form = document.querySelector('form');
+            // Form submission with mailto
+            const form = document.getElementById('contactForm');
             form.addEventListener('submit', function(e) {
                 e.preventDefault();
-                alert('お問い合わせありがとうございます。24時間以内にご連絡いたします。');
+
+                const name = document.getElementById('name').value;
+                const email = document.getElementById('email').value;
+                const plan = document.getElementById('plan').value;
+                const planText = document.getElementById('plan').options[document.getElementById('plan').selectedIndex].text;
+                const message = document.getElementById('message').value;
+
+                const subject = '【お問い合わせ】顧問弁護士サービス';
+                const body = `お名前: ${name}\n\nメールアドレス: ${email}\n\nご希望: ${planText}\n\nお問い合わせ内容:\n${message}`;
+
+                const mailtoLink = `mailto:t.kitagawa@tk-lawyer.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+                window.location.href = mailtoLink;
             });
 
             // Animation on scroll and page load
