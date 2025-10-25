@@ -1,7 +1,8 @@
 {
   "permissions": {
     "allow": [
-      "Read(//c/Users/ta-k-/Desktop/**)"
+      "Read(//c/Users/ta-k-/Desktop/**)",
+      "WebFetch(domain:docs.google.com)"
     ],
     "deny": [],
     "ask": []

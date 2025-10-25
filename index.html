@@ -1490,26 +1490,30 @@
                     <form id="contactForm">
                         <div class="form-group">
                             <label for="name">お名前（必須）</label>
-                            <input type="text" id="name" name="name" required>
+                            <input type="text" id="name" name="entry.967137881" required>
                         </div>
                         <div class="form-group">
                             <label for="email">メールアドレス（必須）</label>
-                            <input type="email" id="email" name="email" required>
+                            <input type="email" id="email" name="entry.1475190967" required>
                         </div>
                         <div class="form-group">
-                            <label for="plan">ご希望</label>
-                            <select id="plan" name="plan" style="width: 100%; padding: 15px; border: 2px solid #e9ecef; border-radius: 10px; font-size: 1rem;">
+                            <label for="snsAccount">SNSアカウント名</label>
+                            <input type="text" id="snsAccount" name="entry.713518560">
+                        </div>
+                        <div class="form-group">
+                            <label for="plan">ご希望（必須）</label>
+                            <select id="plan" name="entry.1639109346" style="width: 100%; padding: 15px; border: 2px solid #e9ecef; border-radius: 10px; font-size: 1rem;" required>
                                 <option value="">選択してください</option>
-                                <option value="basic">ベーシックプラン（¥10,000/月・税別）</option>
-                                <option value="premium">プレミアムプラン（¥30,000/月・税別）</option>
-                                <option value="special">【限定5枠】スペシャルプラン（¥50,000/月・税別）</option>
-                                <option value="consultation">単発メール相談(税別5,000円/1ヶ月4往復まで)</option>
-                                <option value="other">その他お問い合わせ</option>
+                                <option value="ベーシックプラン（¥10,000/月・税別）">ベーシックプラン（¥10,000/月・税別）</option>
+                                <option value="プレミアムプラン（¥30,000/月・税別）">プレミアムプラン（¥30,000/月・税別）</option>
+                                <option value="【限定5枠】スペシャルプラン（¥50,000/月・税別）">【限定5枠】スペシャルプラン（¥50,000/月・税別）</option>
+                                <option value="単発メール相談(税別5,000円/1ヶ月4往復まで)">単発メール相談(税別5,000円/1ヶ月4往復まで)</option>
+                                <option value="その他お問い合わせ">その他お問い合わせ</option>
                             </select>
                         </div>
                         <div class="form-group">
-                            <label for="message">お問い合わせ内容</label>
-                            <textarea id="message" name="message" placeholder="できるだけ具体的にご記入ください。"></textarea>
+                            <label for="message">お問い合わせ内容（必須）</label>
+                            <textarea id="message" name="entry.1902434705" placeholder="できるだけ具体的にご記入ください。" required></textarea>
                         </div>
                         <div style="text-align: center;">
                             <button type="submit" class="cta-button">送信する</button>
@@ -1551,23 +1555,24 @@
                 });
             });
 
-            // Form submission with mailto
+            // Form submission to Google Forms
             const form = document.getElementById('contactForm');
             form.addEventListener('submit', function(e) {
                 e.preventDefault();
 
-                const name = document.getElementById('name').value;
-                const email = document.getElementById('email').value;
-                const plan = document.getElementById('plan').value;
-                const planText = document.getElementById('plan').options[document.getElementById('plan').selectedIndex].text;
-                const message = document.getElementById('message').value;
+                const formData = new FormData(form);
+                const googleFormUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSfSUorBxKCYwa0l0lhkT55g1jEP7MNL74OS8ZTYnPoir5DQsQ/formResponse';
 
-                const subject = '【お問い合わせ】顧問弁護士サービス';
-                const body = `お名前: ${name}\n\nメールアドレス: ${email}\n\nご希望: ${planText}\n\nお問い合わせ内容:\n${message}`;
-
-                const mailtoLink = `mailto:t.kitagawa@tk-lawyer.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-
-                window.location.href = mailtoLink;
+                fetch(googleFormUrl, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    body: formData
+                }).then(() => {
+                    alert('お問い合わせありがとうございます。担当者から24時間以内にご連絡いたします。');
+                    form.reset();
+                }).catch((error) => {
+                    alert('送信に失敗しました。もう一度お試しください。');
+                });
             });
 
             // Animation on scroll and page load
