@@ -234,7 +234,7 @@
             border-radius: 20px;
             box-shadow: 0 5px 20px rgba(0,0,0,0.1);
             position: relative;
-            transition: all 0.8s ease-in-out;
+            transition: all 0.3s ease;
             will-change: transform, box-shadow;
         }
 
@@ -539,11 +539,13 @@
             border-radius: 20px;
             box-shadow: 0 5px 20px rgba(0,0,0,0.1);
             transition: all 0.3s ease;
+            position: relative;
+            will-change: transform, box-shadow;
         }
 
         .service-card:hover {
-            transform: translateY(-15px);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+            transform: translateY(-10px) !important;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2) !important;
         }
 
         .service-icon {
@@ -760,7 +762,12 @@
         }
 
         .application-flow {
-            background: #f8f9fa;
+            background: linear-gradient(135deg, #2d6a4f 0%, #5fcc94 100%);
+            color: white;
+        }
+
+        .application-flow .section-title {
+            color: white;
         }
 
         .flow-container {
@@ -777,8 +784,8 @@
         }
 
         .flow-step {
-            background: white;
-            border: 3px solid #40916c;
+            background: #e8f5e8;
+            border: none;
             border-radius: 20px;
             padding: 2rem 3rem;
             text-align: left;
@@ -788,11 +795,12 @@
             display: flex;
             align-items: center;
             gap: 2rem;
+            will-change: transform, box-shadow;
         }
 
         .flow-step:hover {
-            transform: translateX(5px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            transform: translateY(-10px) !important;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2) !important;
         }
 
         .flow-step-number {
@@ -829,7 +837,7 @@
 
         .flow-arrow {
             position: absolute;
-            color: #40916c;
+            color: #1a4d2e;
             font-size: 3rem;
             font-weight: bold;
             left: 50%;
