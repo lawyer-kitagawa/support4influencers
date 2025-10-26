@@ -91,13 +91,56 @@
         }
 
         .hero {
-            background: linear-gradient(rgba(45, 106, 79, 0.9), rgba(95, 204, 148, 0.9)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%23f8f9fa" width="1200" height="600"/><circle fill="%232d6a4f" opacity="0.1" cx="200" cy="200" r="100"/><circle fill="%235fcc94" opacity="0.1" cx="1000" cy="400" r="150"/></svg>');
+            background: linear-gradient(rgba(45, 106, 79, 0.9), rgba(95, 204, 148, 0.9));
             color: white;
             text-align: center;
             padding: 100px 0;
             min-height: 600px;
             display: flex;
             align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('hero-background.jpg');
+            background-size: cover;
+            background-position: center;
+            opacity: 0;
+            animation: fadeInBackground 2s ease-in forwards;
+            z-index: 0;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(rgba(45, 106, 79, 0.9), rgba(95, 204, 148, 0.9));
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        @keyframes fadeInBackground {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 0.7;
+            }
         }
 
         .hero-content h1 {
@@ -140,13 +183,26 @@
             color: #2d6a4f;
         }
 
-        .reasons {
+        .services-section {
             background: linear-gradient(135deg, #2d6a4f 0%, #5fcc94 100%);
             color: white;
         }
 
-        .reasons .section-title {
+        .services-section .section-title {
             color: white;
+        }
+
+        .services-section p {
+            color: white;
+        }
+
+        .reasons {
+            background: #ffffff;
+            color: #40916c;
+        }
+
+        .reasons .section-title {
+            color: #2d6a4f;
         }
 
         .reasons-content {
@@ -174,16 +230,17 @@
             align-items: flex-start;
             margin-bottom: 2rem;
             padding: 1.5rem;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 15px;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            transition: transform 0.3s, background 0.3s;
+            background: #e8f5e8;
+            border-radius: 20px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            position: relative;
+            transition: all 0.8s ease-in-out;
+            will-change: transform, box-shadow;
         }
 
         .reason-item:hover {
-            transform: translateX(10px);
-            background: rgba(255, 255, 255, 0.15);
+            transform: translateY(-10px) !important;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2) !important;
         }
 
         .reason-icon {
@@ -193,13 +250,13 @@
         }
 
         .reason-content h3 {
-            color: white;
+            color: #2d6a4f;
             margin-bottom: 0.5rem;
             font-size: 1.3rem;
         }
 
         .reason-content p {
-            color: rgba(255, 255, 255, 0.9);
+            color: #40916c;
             line-height: 1.6;
             margin: 0;
         }
@@ -477,16 +534,16 @@
         }
 
         .service-card {
-            background: white;
+            background: #e8f5e8;
             padding: 2rem;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            transition: transform 0.3s, box-shadow 0.3s;
+            border-radius: 20px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
         }
 
         .service-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+            transform: translateY(-15px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
         }
 
         .service-icon {
@@ -499,6 +556,10 @@
             font-size: 1.5rem;
             margin-bottom: 1rem;
             color: #2d6a4f;
+        }
+
+        .service-card p {
+            color: #40916c;
         }
 
         .lawyer-profile {
@@ -1050,6 +1111,65 @@
                 opacity: 1;
             }
         }
+
+        .solution-section {
+            text-align: center;
+            padding: 1.5rem 0 1rem;
+            background: #ffffff;
+        }
+
+        .solution-arrow {
+            font-size: 4rem;
+            color: #40916c;
+            margin-bottom: -0.5rem;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-20px);
+            }
+            60% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .solution-title {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #2d6a4f;
+            background: linear-gradient(90deg, #2d6a4f 0%, #5fcc94 25%, #74d99f 50%, #5fcc94 75%, #2d6a4f 100%);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            padding: 1rem 2rem;
+            animation: shine 3s linear infinite;
+            text-shadow: 0 0 20px rgba(95, 204, 148, 0.5);
+        }
+
+        @keyframes shine {
+            0% {
+                background-position: 0% center;
+            }
+            100% {
+                background-position: 200% center;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .solution-arrow {
+                font-size: 3rem;
+            }
+
+            .solution-title {
+                font-size: 1.8rem;
+                padding: 1rem;
+            }
+        }
     </style>
 </head>
 <body>
@@ -1077,9 +1197,8 @@
                         <li><a href="#services">サービス</a></li>
                         <li><a href="#flow">お申込の流れ</a></li>
                         <li><a href="#lawyer">弁護士紹介</a></li>
-                        <li><a href="#reasons">選ばれる理由</a></li>
                         <li><a href="#pricing">料金プラン</a></li>
-                        <li><a href="#faq">FAQ</a></li>
+                        <li><a href="#faq">よくある質問</a></li>
                         <li><a href="#contact">お問い合わせ</a></li>
                     </ul>
                 </nav>
@@ -1097,9 +1216,8 @@
                     <li><a href="#services" onclick="closeMobileMenu()">サービス</a></li>
                     <li><a href="#flow" onclick="closeMobileMenu()">お申込の流れ</a></li>
                     <li><a href="#lawyer" onclick="closeMobileMenu()">弁護士紹介</a></li>
-                    <li><a href="#reasons" onclick="closeMobileMenu()">選ばれる理由</a></li>
                     <li><a href="#pricing" onclick="closeMobileMenu()">料金プラン</a></li>
-                    <li><a href="#faq" onclick="closeMobileMenu()">FAQ</a></li>
+                    <li><a href="#faq" onclick="closeMobileMenu()">よくある質問</a></li>
                     <li><a href="#contact" onclick="closeMobileMenu()">お問い合わせ</a></li>
                 </ul>
             </nav>
@@ -1110,7 +1228,7 @@
         <section id="home" class="hero">
             <div class="container">
                 <div class="hero-content">
-                    <h1 class="animate-fade-up">YouTuber・インフルエンサー専門<br>顧問弁護士サービス</h1>
+                    <h1 class="animate-fade-up">インフルエンサー限定<br>顧問弁護士サービス</h1>
                     <p class="animate-fade-up animate-delay-1">低コストで顧問弁護士にお気軽相談<br>トラブルを回避して創作活動に専念！</p>
                     <a href="https://line.me/R/ti/p/@your-line-id" class="cta-button animate-fade-up animate-delay-2" target="_blank">公式LINE登録</a>
                 </div>
@@ -1181,13 +1299,17 @@
                         </div>
                     </div>
                 </div>
+                <div class="solution-section">
+                    <div class="solution-arrow">↓</div>
+                    <h2 class="solution-title">コスパ抜群な「顧問弁護士契約」で解決！</h2>
+                </div>
             </div>
         </section>
 
-        <section id="services" class="section">
+        <section id="services" class="section services-section">
             <div class="container">
                 <h2 class="section-title animate-slide-top">サービス内容</h2>
-                <p style="text-align: center; font-size: 0.9rem; color: #2d6a4f; margin-top: -3.5rem; margin-bottom: 2rem;">（プランによって内容が異なります）</p>
+                <p style="text-align: center; font-size: 0.9rem; color: white; margin-top: -3.5rem; margin-bottom: 2rem;">（プランによって内容が異なります）</p>
                 <div class="services-grid">
                     <div class="service-card animate-fade-up">
                         <div class="service-icon">🔍</div>
@@ -1410,73 +1532,73 @@
                 <div class="faq-container animate-fade-up">
                     <div class="faq-item">
                         <button class="faq-question" onclick="toggleFaq(this)">
-                            顧問契約サービスはどうのような流れで申し込むのですか？
+                            Q. 顧問契約をする予定がなくても公式LINEに登録してもOKですか？
                         </button>
                         <div class="faq-answer">
-                            <p>YouTuberやインフルエンサーの皆様が直面する法的な問題について、専門的なアドバイスとサポートを提供するサービスです。契約書のレビューから誹謗中傷対策、著作権問題まで幅広く対応いたします。</p>
+                            <p>A. もちろんです。公式LINEではSNS投稿に関連する有益な情報などをお送りする予定ですので、公式LINEに登録するだけでも勉強になると思います。</p>
                         </div>
                     </div>
-                    
+
                     <div class="faq-item">
                         <button class="faq-question" onclick="toggleFaq(this)">
-                            契約期間はどのくらいですか？
+                            Q. LINEでの相談に関して回数制限その他のルールはありますか？
                         </button>
                         <div class="faq-answer">
-                            <p>最低契約期間は3ヶ月からとなっております。その後は月単位での更新が可能です。長期契約をご希望の場合は、割引制度もご用意しておりますのでご相談ください。</p>
+                            <p>A. 回数制限はありません。何回でもご質問OKですが、できるだけ具体的なポイントを絞ってご質問ください。動画などの各種投稿をすべて確認することはできないので、たとえば「動画のリンクを貼っておくので見ておいてください。NGな部分があったら教えてください。」といった丸投げのご質問はお控えください。</p>
                         </div>
                     </div>
-                    
+
                     <div class="faq-item">
                         <button class="faq-question" onclick="toggleFaq(this)">
-                            緊急時の対応はどのようになっていますか？
+                            Q. LINE以外のツールを利用しての相談は可能ですか？
                         </button>
                         <div class="faq-answer">
-                            <p>スタンダードプランでは24時間以内、プレミアムプランでは即日対応いたします。誹謗中傷や著作権侵害などの緊急性の高い案件については、優先的に対応させていただきます。</p>
+                            <p>A. メールやChatwork、Slackなどのメッセージツールを利用してのご相談も可能ですが、スピーディーな回答はどうしても難しくなります。それでもご希望の場合はお問い合わせください。</p>
                         </div>
                     </div>
-                    
+
                     <div class="faq-item">
                         <button class="faq-question" onclick="toggleFaq(this)">
-                            どのような相談が多いですか？
+                            Q. SNSアカウントに表記したい場合は「弁護士提携」以外の文言でもOKですか？
                         </button>
                         <div class="faq-answer">
-                            <p>企業案件の契約書レビュー、コラボレーション契約、誹謗中傷・炎上対策、著作権・肖像権に関する相談、税務相談などが多くなっております。チャンネル運営に関するあらゆる法的問題に対応可能です。</p>
+                            <p>A. 「顧問弁護士監修」「弁護士キタガワと業務提携」など、"弁護士北川貴啓と顧問契約を締結している"旨の表現であれば基本的にどのような表現でもOKです。事前にご相談いただければと思います。</p>
                         </div>
                     </div>
-                    
+
                     <div class="faq-item">
                         <button class="faq-question" onclick="toggleFaq(this)">
-                            料金の支払い方法はどうなっていますか？
+                            Q. 毎月の顧問料の支払はコンビニ決済でもOKですか？
                         </button>
                         <div class="faq-answer">
-                            <p>月額料金は銀行振込またはクレジットカード決済にて承っております。年払いをご選択いただくと10％の割引が適用されます。初回のみ契約時に初期費用として、月額料金の50％をお支払いいただきます。</p>
+                            <p>A. お支払には決済サービス「Stripe」を利用します。ログイン後、①クレジットカード払い、②銀行口座振替、のいずれかをお選びください。もし銀行振込やコンビニ決済をご希望の場合、検討させていただきますのでご連絡ください。</p>
                         </div>
                     </div>
-                    
+
                     <div class="faq-item">
                         <button class="faq-question" onclick="toggleFaq(this)">
-                            地方在住でもサービスを利用できますか？
+                            Q. 領収証はもらえますか？
                         </button>
                         <div class="faq-answer">
-                            <p>はい、全国どちらにお住まいの方でもご利用いただけます。相談はメール、電話、オンライン会議ツールを活用して行いますので、場所を問わずサポートが可能です。</p>
+                            <p>A. ご希望の場合にはPDF形式の領収証をLINEでお送りすることができます。</p>
                         </div>
                     </div>
-                    
+
                     <div class="faq-item">
                         <button class="faq-question" onclick="toggleFaq(this)">
-                            契約書の作成もお願いできますか？
+                            Q. 4ヶ月ごとにもらえる法律文書のひな型はどのような内容ですか？
                         </button>
                         <div class="faq-answer">
-                            <p>はい、可能です。企業案件契約書、コラボレーション契約書、利用規約、プライバシーポリシーなど、YouTuber活動に必要な各種契約書の作成・レビューを承っております。</p>
+                            <p>A. 予定しているものとしては、たとえば①編集代行業務委託契約書、②動画制作請負契約書、③PR案件業務委託契約書、④秘密保持契約書、⑤賃貸借契約書など、インフルエンサーにとって有益な文書を、顧問契約継続4ヶ月目、8ヶ月目、12ヶ月目…という周期でお渡しする予定です。お渡しする文書の内容や順番については選択できませんので、あくまでオマケ程度にお考えください。</p>
                         </div>
                     </div>
-                    
+
                     <div class="faq-item">
                         <button class="faq-question" onclick="toggleFaq(this)">
-                            無料相談ではどのような内容を相談できますか？
+                            Q. 第三者とトラブルになった場合の依頼も顧問料の範囲内で対応してくれますか？
                         </button>
                         <div class="faq-answer">
-                            <p>現在抱えている法的な課題についてお聞かせください。具体的な解決策のご提案や、当サービスがどのようにお役に立てるかをご説明いたします。相談時間は約30分程度を予定しております。</p>
+                            <p>A. 申し訳ありませんが、裁判や第三者との交渉の窓口となる場合は別途契約をする必要があります。その際には顧問料とは別に弁護士費用が発生します。詳細はお問い合わせください。</p>
                         </div>
                     </div>
                 </div>
@@ -1497,7 +1619,7 @@
                             <input type="email" id="email" name="entry.1045781291" required>
                         </div>
                         <div class="form-group">
-                            <label for="snsAccount">SNSアカウント名</label>
+                            <label for="snsAccount">SNSアカウント名（任意）</label>
                             <input type="text" id="snsAccount" name="entry.1350610827">
                         </div>
                         <div class="form-group">
