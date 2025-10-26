@@ -165,6 +165,8 @@
             font-weight: bold;
             font-size: 1.1rem;
             transition: transform 0.3s, box-shadow 0.3s;
+            border: none;
+            cursor: pointer;
         }
 
         .cta-button:hover {
@@ -174,6 +176,7 @@
 
         .section {
             padding: 80px 0;
+            text-align: center;
         }
 
         .section-title {
@@ -181,6 +184,9 @@
             font-size: 2.5rem;
             margin-bottom: 3rem;
             color: #2d6a4f;
+            background: linear-gradient(transparent 60%, #e9d5f5 60%);
+            display: inline-block;
+            padding: 0 0.5em;
         }
 
         .services-section {
@@ -190,6 +196,7 @@
 
         .services-section .section-title {
             color: white;
+            background: linear-gradient(transparent 60%, #b17ec4 60%);
         }
 
         .services-section p {
@@ -234,13 +241,12 @@
             border-radius: 20px;
             box-shadow: 0 5px 20px rgba(0,0,0,0.1);
             position: relative;
-            transition: all 0.3s ease;
-            will-change: transform, box-shadow;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
         .reason-item:hover {
-            transform: translateY(-10px) !important;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.2) !important;
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
         }
 
         .reason-icon {
@@ -538,14 +544,13 @@
             padding: 2rem;
             border-radius: 20px;
             box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
             position: relative;
-            will-change: transform, box-shadow;
         }
 
         .service-card:hover {
-            transform: translateY(-10px) !important;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.2) !important;
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
         }
 
         .service-icon {
@@ -565,17 +570,35 @@
         }
 
         .lawyer-profile {
-            background: #ffffff;
+            background: linear-gradient(135deg, #2d6a4f 0%, #5fcc94 100%);
+            color: white;
+        }
+
+        .lawyer-profile .section-title {
+            color: white;
+            background: linear-gradient(transparent 60%, #b17ec4 60%);
         }
 
         .profile-card {
-            background: white;
+            background: #e8f5e8;
             padding: 3rem;
             border-radius: 20px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
             text-align: left;
             max-width: 600px;
             margin: 0 auto;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .profile-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+        }
+
+        .profile-card h3,
+        .profile-card p,
+        .profile-card strong {
+            color: #40916c;
         }
 
         .profile-image {
@@ -613,7 +636,6 @@
             grid-column: 1 / -1;
             width: 100%;
             margin: 0;
-            transform: scale(1.05);
             border-width: 4px;
         }
 
@@ -630,23 +652,29 @@
         }
 
         .pricing-card {
-            background: white;
+            background: #e8f5e8;
             border: 2px solid #e9ecef;
             border-radius: 20px;
             padding: 2.5rem;
             text-align: center;
-            transition: all 0.3s;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
             position: relative;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
         }
 
         .pricing-card:hover {
             border-color: #40916c;
             transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+        }
+
+        .pricing-card.main:hover {
+            transform: translateY(-5px);
         }
 
         .pricing-card.featured {
             border-color: #40916c;
-            background: linear-gradient(135deg, rgba(45, 106, 79, 0.05), rgba(95, 204, 148, 0.05));
+            background: #e8f5e8;
         }
 
         .price {
@@ -657,7 +685,7 @@
         }
 
         .faq {
-            background: #f8f9fa;
+            background: #ffffff;
         }
 
         .faq-container {
@@ -670,12 +698,19 @@
             border: 1px solid #e9ecef;
             border-radius: 10px;
             overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .faq-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
         }
 
         .faq-question {
             width: 100%;
             padding: 1.5rem;
-            background: #f8f9fa;
+            background: #e8f5e8;
             border: none;
             text-align: left;
             font-size: 1.1rem;
@@ -687,7 +722,7 @@
         }
 
         .faq-question:hover {
-            background: #e9ecef;
+            background: #d4ead4;
         }
 
         .faq-question::after {
@@ -721,7 +756,13 @@
         }
 
         .contact-form {
-            background: #ffffff;
+            background: linear-gradient(135deg, #2d6a4f 0%, #5fcc94 100%);
+            color: white;
+        }
+
+        .contact-form .section-title {
+            color: white;
+            background: linear-gradient(transparent 60%, #b17ec4 60%);
         }
 
         .form-container {
@@ -737,21 +778,25 @@
             display: block;
             margin-bottom: 0.5rem;
             font-weight: bold;
-            color: #2d6a4f;
+            color: white;
         }
 
         .form-group input,
-        .form-group textarea {
+        .form-group textarea,
+        .form-group select {
             width: 100%;
             padding: 15px;
             border: 2px solid #e9ecef;
             border-radius: 10px;
             font-size: 1rem;
             transition: border-color 0.3s;
+            background: #e8f5e8;
+            color: #2d6a4f;
         }
 
         .form-group input:focus,
-        .form-group textarea:focus {
+        .form-group textarea:focus,
+        .form-group select:focus {
             outline: none;
             border-color: #40916c;
         }
@@ -768,6 +813,7 @@
 
         .application-flow .section-title {
             color: white;
+            background: linear-gradient(transparent 60%, #b17ec4 60%);
         }
 
         .flow-container {
@@ -791,16 +837,15 @@
             text-align: left;
             position: relative;
             box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
             display: flex;
             align-items: center;
             gap: 2rem;
-            will-change: transform, box-shadow;
         }
 
         .flow-step:hover {
-            transform: translateY(-10px) !important;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.2) !important;
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
         }
 
         .flow-step-number {
@@ -980,6 +1025,7 @@
             padding: 80px 0;
             position: relative;
             overflow: hidden;
+            text-align: center;
         }
 
         .problems-title {
@@ -988,6 +1034,9 @@
             margin-bottom: 4rem;
             color: #2d6a4f;
             font-weight: 700;
+            background: linear-gradient(transparent 60%, #e9d5f5 60%);
+            display: inline-block;
+            padding: 0 0.5em;
         }
 
         .problems-grid {
@@ -1245,7 +1294,7 @@
 
         <section class="influencer-problems">
             <div class="container">
-                <h2 class="problems-title animate-slide-top">このような事でお悩みではありませんか？</h2>
+                <h2 class="problems-title animate-slide-top">このようなお悩みはありませんか？</h2>
                 <div class="problems-grid">
                     <div class="problem-item animate-fade-up">
                         <div class="problem-person">
@@ -1700,6 +1749,20 @@
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         entry.target.style.animationPlayState = 'running';
+
+                        // アニメーション終了後に完全にアニメーションを削除
+                        entry.target.addEventListener('animationend', function(e) {
+                            // アニメーションを完全に削除
+                            this.style.animation = '';
+                            // 最終状態を保持（opacityのみ）
+                            this.style.opacity = '1';
+                            // transformはインラインスタイルから削除（CSSのhoverを有効にするため）
+                            this.style.transform = '';
+                            // クラスも削除
+                            this.classList.remove('animate-slide-left', 'animate-slide-right', 'animate-slide-top', 'animate-slide-bottom', 'animate-fade-up');
+                            this.classList.remove('animate-delay-1', 'animate-delay-2', 'animate-delay-3', 'animate-delay-4', 'animate-delay-5', 'animate-delay-6');
+                        }, { once: true });
+
                         observer.unobserve(entry.target);
                     }
                 });
@@ -1712,12 +1775,21 @@
             const heroElements = document.querySelectorAll('#home .animate-fade-up');
             heroElements.forEach(element => {
                 element.style.animationPlayState = 'running';
+
+                // アニメーション終了後に完全にアニメーションを削除
+                element.addEventListener('animationend', function(e) {
+                    this.style.animation = '';
+                    this.style.opacity = '1';
+                    this.style.transform = '';
+                    this.classList.remove('animate-fade-up');
+                    this.classList.remove('animate-delay-1', 'animate-delay-2', 'animate-delay-3', 'animate-delay-4', 'animate-delay-5', 'animate-delay-6');
+                }, { once: true });
             });
 
             // Other elements animate on scroll
             const scrollElements = document.querySelectorAll('.animate-slide-left, .animate-slide-right, .animate-slide-top, .animate-slide-bottom');
             const nonHeroFadeElements = document.querySelectorAll('.animate-fade-up:not(#home .animate-fade-up)');
-            
+
             [...scrollElements, ...nonHeroFadeElements].forEach(element => {
                 element.style.animationPlayState = 'paused';
                 observer.observe(element);
