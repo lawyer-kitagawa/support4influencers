@@ -184,13 +184,13 @@
             font-size: 2.5rem;
             margin-bottom: 3rem;
             color: #2d6a4f;
-            background-image: linear-gradient(transparent 60%, #e9d5f5 60%, #e9d5f5 100%);
-            background-size: 100% 1.2em;
-            background-repeat: repeat;
-            background-position: 0 0.6em;
-            display: inline;
+        }
+
+        .section-title span {
+            background: linear-gradient(transparent 60%, #e9d5f5 60%);
             padding: 0 0.5em;
-            line-height: 1.5;
+            box-decoration-break: clone;
+            -webkit-box-decoration-break: clone;
         }
 
         .services-section {
@@ -1037,19 +1037,19 @@
             text-align: center;
         }
 
-        .problems-title {
+        .problems-title-wrapper {
             text-align: center;
             font-size: 2.5rem;
             margin-bottom: 4rem;
             color: #2d6a4f;
             font-weight: 700;
-            background-image: linear-gradient(transparent 60%, #e9d5f5 60%, #e9d5f5 100%);
-            background-size: 100% 1.2em;
-            background-repeat: repeat;
-            background-position: 0 0.6em;
-            display: inline;
+        }
+
+        .problems-title {
+            background: linear-gradient(transparent 60%, #e9d5f5 60%);
             padding: 0 0.5em;
-            line-height: 1.5;
+            box-decoration-break: clone;
+            -webkit-box-decoration-break: clone;
         }
 
         .problems-grid {
@@ -1307,7 +1307,7 @@
 
         <section class="influencer-problems">
             <div class="container">
-                <h2 class="problems-title animate-slide-top">このようなお悩みはありませんか？</h2>
+                <h2 class="problems-title-wrapper animate-slide-top"><span class="problems-title">このようなお悩みはありませんか？</span></h2>
                 <div class="problems-grid">
                     <div class="problem-item animate-fade-up">
                         <div class="problem-person">
@@ -1378,7 +1378,7 @@
 
         <section id="services" class="section services-section">
             <div class="container">
-                <h2 class="section-title animate-slide-top">サービス内容</h2>
+                <h2 class="section-title animate-slide-top"><span>サービス内容</span></h2>
                 <p style="text-align: center; font-size: 0.9rem; color: white; margin-top: -3.5rem; margin-bottom: 2rem;">（プランによって内容が異なります）</p>
                 <div class="services-grid">
                     <div class="service-card animate-fade-up">
@@ -1417,7 +1417,7 @@
 
         <section id="reasons" class="section reasons">
             <div class="container">
-                <h2 class="section-title animate-slide-top">弁護士キタガワが選ばれる理由</h2>
+                <h2 class="section-title animate-slide-top"><span>弁護士キタガワが選ばれる理由</span></h2>
                 <div class="reasons-content animate-fade-up">
                     <div class="reasons-image-container">
                         <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&h=400&fit=crop&crop=face" alt="弁護士キタガワ" class="reasons-image">
@@ -1462,7 +1462,7 @@
 
         <section id="flow" class="section application-flow">
             <div class="container">
-                <h2 class="section-title animate-slide-top">お申込の流れ</h2>
+                <h2 class="section-title animate-slide-top"><span>お申込の流れ</span></h2>
                 <div class="flow-container animate-fade-up">
                     <div class="flow-steps">
                         <div class="flow-step">
@@ -1506,7 +1506,7 @@
 
         <section id="pricing" class="section pricing">
             <div class="container">
-                <h2 class="section-title animate-slide-top">料金プラン</h2>
+                <h2 class="section-title animate-slide-top"><span>料金プラン</span></h2>
                 <div style="text-align: center; margin-bottom: 2rem;">
                     <p style="font-size: 1.2rem; color: #dc3545; font-weight: bold; margin-bottom: 1rem;">
                         ⚠️ お申込前に必ず利用規約をご確認ください ⚠️
@@ -1563,7 +1563,7 @@
 
         <section id="lawyer" class="section lawyer-profile">
             <div class="container">
-                <h2 class="section-title animate-slide-top">担当弁護士紹介</h2>
+                <h2 class="section-title animate-slide-top"><span>担当弁護士紹介</span></h2>
                 <div class="profile-card animate-slide-left">
                     <div class="profile-image">
                         <img src="lawyer-photo.png" alt="北川 貴啓 弁護士">
@@ -1598,7 +1598,7 @@
 
         <section id="faq" class="section faq">
             <div class="container">
-                <h2 class="section-title animate-slide-top">よくある質問</h2>
+                <h2 class="section-title animate-slide-top"><span>よくある質問</span></h2>
                 <div class="faq-container animate-fade-up">
                     <div class="faq-item">
                         <button class="faq-question" onclick="toggleFaq(this)">
@@ -1677,7 +1677,7 @@
 
         <section id="contact" class="section contact-form">
             <div class="container">
-                <h2 class="section-title animate-slide-top">お問い合わせ</h2>
+                <h2 class="section-title animate-slide-top"><span>お問い合わせ</span></h2>
                 <div class="form-container animate-fade-up">
                     <form id="contactForm" action="https://docs.google.com/forms/d/e/1FAIpQLSfSUorBxKCYwa0l0lhkT55g1jEP7MNL74OS8ZTYnPoir5DQsQ/formResponse" method="POST" target="hidden_iframe">
                         <div class="form-group">
